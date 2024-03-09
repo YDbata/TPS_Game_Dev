@@ -73,6 +73,7 @@ PBR_Military_Pack/PBR_Drone.meta filter=lfs diff=lfs merge=lfs -text
 TextMesh[[:space:]]Pro/Examples[[:space:]]&[[:space:]]Extras.meta filter=lfs diff=lfs merge=lfs -text
 industrial_zone/scene_day.unity filter=lfs diff=lfs merge=lfs -text
 industrial_zone/scene_day.unity.meta filter=lfs diff=lfs merge=lfs -text
+industrial_zone/Textures/*.* filter=lfs diff=lfs merge=lfs -text
 Scripts/FinalMission.cs.meta filter=lfs diff=lfs merge=lfs -text
 Scenes/EndGameMenu.unity.meta filter=lfs diff=lfs merge=lfs -text
 Scenes/MainGame.unity.meta filter=lfs diff=lfs merge=lfs -text
