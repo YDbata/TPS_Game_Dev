@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:123cdbd24f0b3c54e4ce0054d276f4ff6d14c6ec71402a93853595f235142fe0
-size 488
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public static class GameObjectExtentions
+{ 
+    public static T GetAroundComponent<T>(this GameObject obj) where T : Component
+    {
+        T t = null;
+        t = obj.GetComponentInParent<T>();
+        if (t != null) return t;
+
+        t = obj.GetComponentInChildren<T>();
+        if (t != null) return t;
+
+        t = obj.GetComponent<T>();
+        if (t != null) return t;
+
+        return null;
+
+    }
+}

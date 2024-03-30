@@ -26,26 +26,31 @@ public class KeyReycast : MonoBehaviour
 
         Vector3 forwardDirection = transform.TransformDirection(Vector3.forward);
         int mask = 1 << LayerMask.NameToLayer(banLayerName) | layerMaskCollective.value;
-        if(Physics.Raycast(transform.position, forwardDirection, out hitinfo, rayRadius, mask))
+        
+        if (Physics.Raycast(transform.position, forwardDirection, out hitinfo, rayRadius, mask))
         {
-            if(hitinfo.collider.CompareTag(collectiveTag))
+            //Debug.Log("hitinfo" + hitinfo.collider.CompareTag(collectiveTag));
+            if (hitinfo.collider.CompareTag(collectiveTag))
             {
-                if(!OneTime)
+                if (!OneTime)
                 {
                     raycastedObject = hitinfo.collider.gameObject.GetComponent<KeyObject>();
+                    
                     ChangeCrosshair(true);
                 }
                 checkCrosshair = true;
                 OneTime = true;
 
-                if (Menus.InteractionButtonClicked){//Input.GetKeyDown(InteractionKey)){
-                    if(raycastedObject) raycastedObject.FoundObject();
+                if (Input.GetKeyDown(InteractionKey))//Menus.InteractionButtonClicked) //Input.GetKeyDown(InteractionKey)
+                {
+                    
+                    if (raycastedObject) raycastedObject.FoundObject();
                 }
             }
         }
         else
         {
-            if(checkCrosshair)
+            if (checkCrosshair)
             {
                 ChangeCrosshair(false);
                 OneTime = false;
@@ -55,7 +60,7 @@ public class KeyReycast : MonoBehaviour
 
     private void ChangeCrosshair(bool change)
     {
-        if(change && !OneTime)
+        if (change && !OneTime)
         {
             crosshair.color = Color.blue;
         }
@@ -65,4 +70,5 @@ public class KeyReycast : MonoBehaviour
             checkCrosshair = false;
         }
     }
+
 }

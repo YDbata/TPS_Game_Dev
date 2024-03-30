@@ -4,17 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-enum EEnumyType
-{
-	None,
-	Solder,
-	Dron,
-}
-
 public class ShootState : MonoBehaviour, IState
 {
-	[SerializeField] private EEnumyType enemytype;
-
 	[Header("Rifle shooting")]
 	[SerializeField] Camera enemyVision;
 	[SerializeField] float nextTimeToShoot = 2f;
@@ -27,9 +18,7 @@ public class ShootState : MonoBehaviour, IState
 	[SerializeField] ParticleSystem muzzleFlame;
 
 	[Header("Sounds")]
-	//[SerializeField] DronSound dronSound;
-	[SerializeField] AudioSource audioSource;
-	[SerializeField] List<AudioClip> audioClipList;
+	[SerializeField] DronSound dronSound;
 
 	private Animator animator;
 	private NavMeshAgent agent;
@@ -38,15 +27,15 @@ public class ShootState : MonoBehaviour, IState
 	private bool canShoot = true;
 	public void EnterState(Enemy enemy)
 	{
-		if (!animator) animator = gameObject.GetArountComponent<Animator>();
-		if (!agent) agent = gameObject.GetArountComponent<NavMeshAgent>();
-		//if (!dronSound) dronSound = gameObject.GetOrAddComponent<DronSound>();
+		if (!animator) animator = gameObject.GetAroundComponent<Animator>();
+		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
+		if (!dronSound) dronSound = gameObject.GetOrAddComponent<DronSound>();
 		currentEnemy = enemy;
 
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", true);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 
 	public void UpdateState()
@@ -59,19 +48,9 @@ public class ShootState : MonoBehaviour, IState
 		{
 			muzzleSpark.Play();
 			if(muzzleFlame && !muzzleFlame.isPlaying) muzzleFlame.Play();
-			switch (enemytype)
-			{
-				case EEnumyType.Solder:
-					PlaySound("Gun Machine Gun 444");
-					break;
-				case EEnumyType.Dron:
-                    PlaySound("Gun Machine Gun 353");
-                    PlaySound("FlameThrower");
-					break;
 
-            }
-			//if(dronSound) dronSound.PlayShootSound();
-			//if(dronSound) dronSound.PlayFlameSound();
+			if(dronSound) dronSound.PlayShootSound();
+			if(dronSound) dronSound.PlayFlameSound();
 
 			RaycastHit hitInfo;
 
@@ -88,7 +67,7 @@ public class ShootState : MonoBehaviour, IState
 				animator.SetBool("Walk", false);
 				animator.SetBool("AimRun", false);
 				animator.SetBool("Shoot", true);
-				animator.SetBool("Die", false);
+				animator.SetBool("Dead", false);
 			}
 
 			canShoot = false;
@@ -98,21 +77,12 @@ public class ShootState : MonoBehaviour, IState
 
 	private void ResetShooting() { canShoot = true; }
 
-	private void PlaySound(string clipName)
-	{
-		AudioClip clip = audioClipList.Find((x) => x.name == clipName);
-		if (clip)
-		{
-			audioSource.PlayOneShot(clip);
-		}
-	}
-
 	public void ExitState()
 	{
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 
 

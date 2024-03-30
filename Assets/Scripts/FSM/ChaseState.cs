@@ -12,8 +12,8 @@ public class ChaseState : MonoBehaviour,IState
 	private Transform target;
 	public void EnterState(Enemy enemy)
 	{
-		if (!animator) animator = gameObject.GetArountComponent<Animator>();
-		if (!agent) agent = gameObject.GetArountComponent<NavMeshAgent>();
+		if (!animator) animator = gameObject.GetAroundComponent<Animator>();
+		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
 
 		currentEnemy = enemy;
 		target = enemy.Target;
@@ -21,7 +21,7 @@ public class ChaseState : MonoBehaviour,IState
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", true);
 		animator.SetBool("Shoot", false);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 
 	public void UpdateState()
@@ -34,6 +34,6 @@ public class ChaseState : MonoBehaviour,IState
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 }

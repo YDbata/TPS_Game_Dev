@@ -20,15 +20,11 @@ public class KeyObject : MonoBehaviour
             KeyList.hasKey = true;
             gameObject.SetActive(false);
 
-        }else if (gate)
+        }
+        else if (gate)
         {
             gateObject.StartAnimation();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

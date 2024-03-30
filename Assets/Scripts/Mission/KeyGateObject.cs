@@ -5,32 +5,30 @@ using UnityEngine;
 public class KeyGateObject : MonoBehaviour
 {
     [Header("Animations")]
-    [SerializeField] private Animator gateAnimator;
-    [SerializeField] private bool openGate;
+    [SerializeField] private Animator animator;
+    [SerializeField] private bool openGete;
 
-    [SerializeField] private KeyList keyList;
+    [SerializeField] private KeyList KeyList;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip clip;
 
-    private string openParameter = "open";
-
     public void StartAnimation()
     {
-        if (keyList.hasKey)
+        if (KeyList.hasKey)
         {
             OpenGate();
         }
+        
     }
 
     private void OpenGate()
     {
-        openGate = !openGate;
-        gateAnimator.SetBool(openParameter, openGate);
+        openGete = !openGete;
+        animator.SetBool("Open", openGete);
         audioSource.PlayOneShot(clip);
-        if (openGate)
+        if (openGete)
         {
-            MissionComplete.Instance.UpdateMissionComplete(1, openGate);
+            MissionComplete.Instance.UpdateMissionComplete(1, openGete);
         }
     }
-
 }

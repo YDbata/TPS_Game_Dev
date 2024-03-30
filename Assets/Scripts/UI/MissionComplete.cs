@@ -24,18 +24,6 @@ public class MissionComplete : MonoBehaviour
 		Instance = this;
 	}
 
-	public bool IsFinalMission()
-	{
-		return mission_1_Completed && mission_2_Completed && mission_3_Completed;
-
-    }
-
-	public bool Mission2Complete()
-	{
-		return mission_1_Completed && mission_2_Completed;
-
-    }
-
 	public void UpdateMissionComplete(int index, bool result)
 	{
 		switch (index)
@@ -49,30 +37,20 @@ public class MissionComplete : MonoBehaviour
 				}
 				break;
 			case 2:
-				mission_2_Completed = result;
 				if (result)
 				{
+					mission_2_Completed = result;
 					Mission_2.text = "2. Computer is offline";
 					Mission_2.color = Color.green;
 				}
-				else
-				{
-                    Mission_3.text = "2. Shutdown The Computer System";
-                    Mission_3.color = Color.white;
-                }
 				break;
 			case 3: 
-				mission_3_Completed = result;
 				if (result)
 				{
+					mission_3_Completed = result;
 					Mission_3.text = "3. Generator is offline";
 					Mission_3.color = Color.green;
 				}
-				else
-				{
-                    Mission_3.text = "3. Shutdown The Generators";
-                    Mission_3.color = Color.white;
-                }
 				break;
 			case 4:
 				if (result)

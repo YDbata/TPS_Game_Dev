@@ -15,15 +15,15 @@ public class PatrolState : MonoBehaviour , IState
 
 	public void EnterState(Enemy enemy)
 	{
-		if(!animator) animator = gameObject.GetArountComponent<Animator>();
-		if (!agent) agent = gameObject.GetArountComponent<NavMeshAgent>();
+		if(!animator) animator = gameObject.GetAroundComponent<Animator>();
+		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
 
 		currentEnemy = enemy;
 
 		animator.SetBool("Walk", true);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 
 	public void UpdateState()
@@ -45,6 +45,6 @@ public class PatrolState : MonoBehaviour , IState
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
-		animator.SetBool("Die", false);
+		animator.SetBool("Dead", false);
 	}
 }
