@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    [Header("Cumputer State")]
-    public Light lights;
+    [Header("Generator State")]
+    public Animator animator;
+    [SerializeField]private AudioSource generatorSource;
     private bool state = true;
 
 
@@ -25,7 +26,7 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Menus.InteractionButtonClicked && Vector3.Distance(transform.position, player.position) < radius)
+        if (Input.GetKeyDown(InteractionKey) && Vector3.Distance(transform.position, player.position) < radius)
         {
             state = !state;
             ChangeState();
@@ -34,15 +35,21 @@ public class Generator : MonoBehaviour
 
     private void ChangeState()
     {
-        MissionComplete.Instance.UpdateMissionComplete(2, !state);
+        MissionComplete.Instance.UpdateMissionComplete(3, !state);
         if (state)
         {
-            lights.intensity = 1;
+            // generator 소리 켜기
+            generatorSource.Play();
+
         }
         else
         {
+            // generator 소리 끄기
+            generatorSource.Stop();
+            // generator 애니매이션 끄기
+            
             audioSource.PlayOneShot(clip);
-            lights.intensity = 0;
+
         }
     }
 

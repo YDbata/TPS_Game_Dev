@@ -26,7 +26,7 @@ public class Computer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Menus.InteractionButtonClicked && Vector3.Distance(transform.position, player.position) < radius)
+        if (Input.GetKeyDown(InteractionKey) && Vector3.Distance(transform.position, player.position) < radius)// 모바일용 Menus.InteractionButtonClicked
         {
             state = !state;
             ChangeState();
