@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+enum EEnumyType
+{
+	None,
+	Solder,
+	Dron,
+}
 
 public class ShootState : MonoBehaviour, IState
 {
+	[SerializeField] private EEnumyType enemytype;
+
+
 	[Header("Rifle shooting")]
 	[SerializeField] Camera enemyVision;
 	[SerializeField] float nextTimeToShoot = 2f;
@@ -18,7 +27,9 @@ public class ShootState : MonoBehaviour, IState
 	[SerializeField] ParticleSystem muzzleFlame;
 
 	[Header("Sounds")]
-	[SerializeField] DronSound dronSound;
+	[SerializeField] AudioSource audioSource;
+	[SerializeField] List<AudioClip> audioClipList;
+	//[SerializeField] DronSound dronSound;
 
 	private Animator animator;
 	private NavMeshAgent agent;
@@ -29,7 +40,7 @@ public class ShootState : MonoBehaviour, IState
 	{
 		if (!animator) animator = gameObject.GetAroundComponent<Animator>();
 		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
-		if (!dronSound) dronSound = gameObject.GetOrAddComponent<DronSound>();
+		//if (!dronSound) dronSound = gameObject.GetOrAddComponent<DronSound>();
 		currentEnemy = enemy;
 
 		animator.SetBool("Walk", false);
@@ -48,16 +59,27 @@ public class ShootState : MonoBehaviour, IState
 		{
 			muzzleSpark.Play();
 			if(muzzleFlame && !muzzleFlame.isPlaying) muzzleFlame.Play();
+			if (muzzleFlame && !muzzleFlame.isPlaying) muzzleFlame.Play();
+			switch (enemytype)
+			{
+				case EEnumyType.Solder:
+					PlaySound("Gun Machine Gun 444");
+					break;
+				case EEnumyType.Dron:
+					PlaySound("Gun Machine Gun 353");
+					PlaySound("FlameThrower");
+					break;
 
-			if(dronSound) dronSound.PlayShootSound();
-			if(dronSound) dronSound.PlayFlameSound();
+			}
+			//if (dronSound) dronSound.PlayShootSound();
+			//if(dronSound) dronSound.PlayFlameSound();
 
 			RaycastHit hitInfo;
 
 			if (Physics.Raycast(enemyVision.transform.position, enemyVision.transform.forward,
 				out hitInfo, shootingRange))
 			{
-				Debug.Log("Shooting " + hitInfo.collider.name);
+				//Debug.Log("Shooting " + hitInfo.collider.name);
 				PlayerController player = hitInfo.transform.GetComponent<PlayerController>();
 				if (player)
 				{
@@ -76,6 +98,15 @@ public class ShootState : MonoBehaviour, IState
 	}
 
 	private void ResetShooting() { canShoot = true; }
+
+	private void PlaySound(string clipName)
+	{
+		AudioClip clip = audioClipList.Find((x) => x.name == clipName);
+		if (clip)
+		{
+			audioSource.PlayOneShot(clip);
+		}
+	}
 
 	public void ExitState()
 	{

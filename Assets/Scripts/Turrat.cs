@@ -83,9 +83,9 @@ public class Turrat : MonoBehaviour, IDamageable
         shootingRadius = 0;
         playerInShootingRadius = false;
         isDead = true;
-        animator.SetBool("Dead", true);
+        //animator.SetBool("Dead", true);
 
-        Destroy(this.gameObject, 5);
+        Destroy(this.gameObject, 2);
     }
 
     public void HitDamage(float amount)

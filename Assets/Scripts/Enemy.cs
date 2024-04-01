@@ -81,10 +81,10 @@ public class Enemy : MonoBehaviour, IDamageable
                 enemyStateContext.Transition(patrolState);
                 break;
             case EState.Chase:
-                enemyStateContext.Transition(patrolState);
+                enemyStateContext.Transition(chaseState);
                 break;
             case EState.Shoot:
-                enemyStateContext.Transition(patrolState);
+                enemyStateContext.Transition(shootState);
                 break;
 
         }

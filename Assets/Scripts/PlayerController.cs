@@ -24,12 +24,13 @@ public class PlayerController : MonoBehaviour
 
 
 	[Header("PLayer Health")]
-	private float playerHealth = 100;
-	private float currentHealth = 0;
+	[SerializeField]private float playerHealth = 100;
+	[SerializeField]private float currentHealth = 100;
 	[SerializeField] HealthBar healthBar;
 
 	[Header("GUI")]
 	[SerializeField] GameObject EndGameMenuUI;
+	[SerializeField] GameObject Compass;
 
 	//[SerializeField] private GameObject LookAt;
 
@@ -141,6 +142,7 @@ public class PlayerController : MonoBehaviour
     {
 		currentHealth -= takeDamage;
 		healthBar.SetHealth(currentHealth / playerHealth);
+		Debug.Log("player Healh Down" + takeDamage + "cur health"  + currentHealth/playerHealth);
 		if(currentHealth <= 0)
         {
 			Die();
@@ -150,6 +152,7 @@ public class PlayerController : MonoBehaviour
 	private void Die()
     {
 		EndGameMenuUI.SetActive(true);
+		Compass.SetActive(false);
 		Destroy(gameObject, 1.0f);
 	}
 
