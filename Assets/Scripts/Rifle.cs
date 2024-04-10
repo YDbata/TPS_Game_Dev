@@ -69,6 +69,9 @@ public class Rifle : MonoBehaviour
     private void Shoot()
     {
         curAmmo--;
+        AmmoHUB.instance.updateAmmoText(curAmmo, maxAmmo);
+        AmmoHUB.instance.updateMagText(mag);
+
         RaycastHit hitinfo;
         muzzleSpark.Play();
 
@@ -128,6 +131,9 @@ public class Rifle : MonoBehaviour
         playerController.CanMove = true;
         setReloading = false;
         mag--;
+        AmmoHUB.instance.updateAmmoText(curAmmo, maxAmmo);
+        AmmoHUB.instance.updateMagText(mag);
+
     }
 
 }
