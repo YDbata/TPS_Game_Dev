@@ -66,8 +66,12 @@ public class ShootState : MonoBehaviour, IState
 					PlaySound("Gun Machine Gun 444");
 					break;
 				case EEnumyType.Dron:
-					PlaySound("Gun Machine Gun 353");
-					PlaySound("FlameThrower");
+					for (int i  = 0; i < audioClipList.Count; i++)
+                    {
+
+						PlaySound(audioClipList[0].name);//"Gun Machine Gun 353");
+                    }
+					// PlaySound("FlameThrower");
 					break;
 
 			}
