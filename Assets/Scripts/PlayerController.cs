@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 	
 	[SerializeField] public float walkSpeed = 5;
 	[SerializeField] public float sprintSpeed = 5;
-	[SerializeField] private float rotationSpeed = 10;
+	//[SerializeField] private float rotationSpeed = 10;
 	[SerializeField] private CharacterController _controller;
 	[SerializeField] private TPSCameraController _cameraController;
 	[SerializeField] private Transform playerCamera;
@@ -91,13 +91,13 @@ public class PlayerController : MonoBehaviour
 	{
 		if(!CanMove) { return; }
 		Vector3 direction = Vector3.zero;
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
         float x = Input.GetAxis("Horizontal"); // 0°ú 1·Î¸¸ ³ª¿È
         float z = Input.GetAxis("Vertical");
         direction = new Vector3(x, 0, z);
 #elif UNITY_ANDROID
 		direction = Joystick.InputDir;
-#endif
+#endif*/
 
 
 /*		float moveAmount = Mathf.Clamp01(Mathf.Abs(direction.x) + Mathf.Abs(direction.z));
