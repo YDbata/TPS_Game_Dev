@@ -91,17 +91,17 @@ public class PlayerController : MonoBehaviour
 	{
 		if(!CanMove) { return; }
 		Vector3 direction = Vector3.zero;
-/*#if UNITY_EDITOR
-        float x = Input.GetAxis("Horizontal"); // 0°ú 1·Î¸¸ ³ª¿È
+#if UNITY_EDITOR || UNITY_WEBGL
+		float x = Input.GetAxis("Horizontal"); // 0°ú 1·Î¸¸ ³ª¿È
         float z = Input.GetAxis("Vertical");
         direction = new Vector3(x, 0, z);
-#elif UNITY_ANDROID
-		direction = Joystick.InputDir;
-#endif*/
+/*#elif UNITY_ANDROID
+		direction = Joystick.InputDir;*/
+#endif
 
 
-/*		float moveAmount = Mathf.Clamp01(Mathf.Abs(direction.x) + Mathf.Abs(direction.z));
-		Vector3 movedir = _cameraController.PlanarRotationY*direction;*/
+        /*		float moveAmount = Mathf.Clamp01(Mathf.Abs(direction.x) + Mathf.Abs(direction.z));
+                Vector3 movedir = _cameraController.PlanarRotationY*direction;*/
         bool isSprint = Input.GetKey(KeyCode.LeftShift);
 
         float speed = isSprint ? sprintSpeed : walkSpeed;
