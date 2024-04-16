@@ -12,6 +12,8 @@ TPS 게임 제작 구현
 ## 캐릭터 구현
 
 ### 캐릭터 기본 조작
+<img src="https://github.com/YDbata/TPS_Game_Dev/assets/51112432/01976700-9884-40af-b136-3e74d711576f" width=400>
+
 기본이동 및 점프 : input maneger로 구현  
 상호작용 : Key press 코딩으로 구현
 
