@@ -8,6 +8,8 @@ public class PatrolState : MonoBehaviour , IState
 	[SerializeField] Transform[] wayPoints;
 	[SerializeField] int currentWayPoint = 0;
 	[SerializeField] float walkingPointRadius = 2;
+	[SerializeField] float standPointRadius = 1;
+	public float walkSpeed = 3;
 
 	private Enemy currentEnemy;
 	private Animator animator;
@@ -27,8 +29,29 @@ public class PatrolState : MonoBehaviour , IState
 	}
 
 	public void UpdateState()
-	{
-		if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.EnemyModel.position)
+	{	
+		if(wayPoints.Length == 1)
+        {
+			if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.EnemyModel.position)
+			< standPointRadius)
+            {
+				
+				currentEnemy.EnemyModel.rotation = Quaternion.Lerp(currentEnemy.EnemyModel.rotation, wayPoints[currentWayPoint].rotation, Time.deltaTime*5);
+				
+				if (walkSpeed > 0.01)
+                {
+					walkSpeed = Mathf.Lerp(walkSpeed, 0.00f, 3 * Time.deltaTime);
+                }
+				else
+					walkSpeed = 0;
+
+				animator.SetFloat("WalkSpeed", walkSpeed);
+
+			}
+
+		}
+
+		else if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.EnemyModel.position)
 			< walkingPointRadius)
 		{
 			currentWayPoint++;
@@ -43,6 +66,7 @@ public class PatrolState : MonoBehaviour , IState
 	public void ExitState()
 	{
 		animator.SetBool("Walk", false);
+		animator.SetFloat("WalkSpeed", 3, 0.5f, Time.deltaTime);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
 		animator.SetBool("Dead", false);

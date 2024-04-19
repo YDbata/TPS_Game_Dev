@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d9e6ab2f4fb99d526c38862acb89c5760f32cfbb172e383e094f836c29ef824
-size 603
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(AudioSource))]
+public class FootSteps : MonoBehaviour
+{
+	private AudioSource audioSource;
+
+	[Header("FootStep Source")]
+	[SerializeField] private AudioClip[] footstepSound;
+
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
+	public void Step()
+	{
+		AudioClip clip = GetRandomFootStep();
+		//audioSource.volume = 0.2f;
+		audioSource.PlayOneShot(clip);
+	}
+
+	private AudioClip GetRandomFootStep()
+	{
+		return footstepSound[UnityEngine.Random.Range(0, footstepSound.Length)];
+	}
+}
