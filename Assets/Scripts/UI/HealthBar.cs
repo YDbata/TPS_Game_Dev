@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour
 	public Image FillAmount;
     public void GiveFullHealth()
 	{
-		//Ã¼·Â¹Ù°¡ ´Ù ²Ë Âù »óÅÂ·Î ÃÊ±âÈ­
+		//ì²´ë ¥ë°”ê°€ ë‹¤ ê½‰ ì°¬ ìƒíƒœë¡œ ì´ˆê¸°í™”
 		FillAmount.fillAmount = 1;
 	}
 

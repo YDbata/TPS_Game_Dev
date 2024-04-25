@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +12,7 @@ public class Rifle : MonoBehaviour
     [SerializeField] float shootingRange = 100f;
 
     [SerializeField] Animator animator;
-    [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerControllerOld PlayerControllerOld;
 
     [Header("Rifle Effects")]
     [SerializeField] ParticleSystem muzzleSpark;
@@ -25,16 +25,16 @@ public class Rifle : MonoBehaviour
     private float nextTimeToShoot = 0;
 
     [Header("Rifle Ammunition")]
-    [SerializeField] int maxAmmo = 20; // ÃÖ´ë ÃÑ¾Ë °³¼ö
-    [SerializeField] int mag = 15; // ÇöÀç ÅºÃ¢ °³¼ö
-    [SerializeField] int curAmmo; // ÇöÀç ÃÑ¾Ë °³¼ö
-    [SerializeField] float reloadingTime = 1.3f; // ÀçÀåÀü ½Ã°£
-    [SerializeField] bool setReloading = false; // ÀçÀåÀü »óÅÂ
+    [SerializeField] int maxAmmo = 20; // ìµœëŒ€ ì´ì•Œ ê°œìˆ˜
+    [SerializeField] int mag = 15; // í˜„ì¬ íƒ„ì°½ ê°œìˆ˜
+    [SerializeField] int curAmmo; // í˜„ì¬ ì´ì•Œ ê°œìˆ˜
+    [SerializeField] float reloadingTime = 1.3f; // ì¬ì¥ì „ ì‹œê°„
+    [SerializeField] bool setReloading = false; // ì¬ì¥ì „ ìƒíƒœ
 
     private void Awake()
     {
         curAmmo = maxAmmo;
-        //playerController = GetComponent<PlayerController>();
+        //PlayerControllerOld = GetComponent<PlayerControllerOld>();
 
     }
     // Update is called once per frame
@@ -44,13 +44,13 @@ public class Rifle : MonoBehaviour
 
         if(curAmmo <= 0 && mag > 0)
         {
-            // ÀçÀåÀü
+            // ì¬ì¥ì „
             StartCoroutine(Reload());
             return;
         }
 
         bool onFire = Input.GetButton("Fire1");
-        if (onFire && Time.time >= nextTimeToShoot) // ÁÂÅ¬¸¯
+        if (onFire && Time.time >= nextTimeToShoot) // ì¢Œí´ë¦­
         {
             animator.SetBool("Fire", true);
             animator.SetBool("Idle", false);
@@ -58,7 +58,7 @@ public class Rifle : MonoBehaviour
             Shoot();
             
         }
-        else if(!onFire) // ÁÂÅ¬¸¯ Ãë¼Ò
+        else if(!onFire) // ì¢Œí´ë¦­ ì·¨ì†Œ
         {
             animator.SetBool("Fire", false);
             animator.SetBool("Idle", true);
@@ -120,7 +120,7 @@ public class Rifle : MonoBehaviour
 
     IEnumerator Reload()
     {
-        playerController.CanMove = false;
+        PlayerControllerOld.CanMove = false;
         setReloading = true;
         Debug.Log("Reloading..");
         animator.SetBool("Reloading", true );
@@ -128,7 +128,7 @@ public class Rifle : MonoBehaviour
         animator.SetBool("Reloading", false);
 
         curAmmo = maxAmmo;
-        playerController.CanMove = true;
+        PlayerControllerOld.CanMove = true;
         setReloading = false;
         mag--;
         AmmoHUB.instance.updateAmmoText(curAmmo, maxAmmo);

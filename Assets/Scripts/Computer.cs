@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +26,7 @@ public class Computer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(InteractionKey) && Vector3.Distance(transform.position, player.position) < radius)// ¸ð¹ÙÀÏ¿ë Menus.InteractionButtonClicked
+        if (Input.GetKeyDown(InteractionKey) && Vector3.Distance(transform.position, player.position) < radius)// ëª¨ë°”ì¼ìš© Menus.InteractionButtonClicked
         {
             state = !state;
             ChangeState();

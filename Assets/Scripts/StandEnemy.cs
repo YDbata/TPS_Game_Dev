@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +18,7 @@ public class StandEnemy : MonoBehaviour, IDamageable
 
 
     [Header("walk")]
-    // ÀÌµ¿ ÁöÁ¡
+    // ì´ë™ ì§€ì 
     [SerializeField] float enemySpeed;
     [SerializeField] float walkingPointRadius = 2;
 

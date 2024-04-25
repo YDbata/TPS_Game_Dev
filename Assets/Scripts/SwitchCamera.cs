@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,7 @@ public class SwitchCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire2")) // ∏∂øÏΩ∫ øÏ≈¨∏Ø
+        if (Input.GetButton("Fire2")) // ÎßàÏö∞Ïä§ Ïö∞ÌÅ¥Î¶≠
         {
             animator.SetBool("Aiming", true);
             ThirdPersonCam.SetActive(false);

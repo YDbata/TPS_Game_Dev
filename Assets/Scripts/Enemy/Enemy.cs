@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ÇöÀç »óÅÂ¸¦ ¹Ş¾Æ »óÅÂº° script¿¡¼­ ¿¡´Ï¸ŞÀÌ¼ÇÀ» ½ÇÇàÇÏ´Â ÇÔ¼ö
+    /// í˜„ì¬ ìƒíƒœë¥¼ ë°›ì•„ ìƒíƒœë³„ scriptì—ì„œ ì—ë‹ˆë©”ì´ì…˜ì„ ì‹¤í–‰í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <param name="eState"></param>
     private void UpdateState(EState eState)

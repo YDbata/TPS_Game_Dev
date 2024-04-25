@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ enum EState
 	Shoot,
 }
 /// <summary>
-/// ÇöÀç »óÅÂ¸¦ º¸°üÇÏ°í »õ·Î¿î »óÅÂ·Î ÀüÈ¯ÇØÁÖ´Â Å¬·¡½º
+/// í˜„ì¬ ìƒíƒœë¥¼ ë³´ê´€í•˜ê³  ìƒˆë¡œìš´ ìƒíƒœë¡œ ì „í™˜í•´ì£¼ëŠ” í´ë˜ìŠ¤
 /// </summary>
 public class EnemyStateContext
 {

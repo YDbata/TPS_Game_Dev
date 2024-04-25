@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,15 +38,15 @@ public class Generator : MonoBehaviour
         MissionComplete.Instance.UpdateMissionComplete(3, !state);
         if (state)
         {
-            // generator ¼Ò¸® ÄÑ±â
+            // generator ì†Œë¦¬ ì¼œê¸°
             generatorSource.Play();
 
         }
         else
         {
-            // generator ¼Ò¸® ²ô±â
+            // generator ì†Œë¦¬ ë„ê¸°
             generatorSource.Stop();
-            // generator ¾Ö´Ï¸ÅÀÌ¼Ç ²ô±â
+            // generator ì• ë‹ˆë§¤ì´ì…˜ ë„ê¸°
             
             audioSource.PlayOneShot(clip);
 

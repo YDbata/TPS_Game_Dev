@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -84,7 +84,7 @@ public class ShootState : MonoBehaviour, IState
 				out hitInfo, shootingRange))
 			{
 				//Debug.Log("Shooting " + hitInfo.collider.name);
-				PlayerController player = hitInfo.transform.GetComponent<PlayerController>();
+				PlayerControllerOld player = hitInfo.transform.GetComponent<PlayerControllerOld>();
 				if (player)
 				{
 					player.HitDamage(Damage);

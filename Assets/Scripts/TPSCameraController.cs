@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -33,18 +33,18 @@ public class TPSCameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		// ¸¶¿ì½ºÆ÷ÀÎÆ®°¡ ÁÂ¿ì·Î ¿òÁ÷ÀÌ´Â °ÍÀ» °¡Á®¿Â´Ù.
+		// ë§ˆìš°ìŠ¤í¬ì¸íŠ¸ê°€ ì¢Œìš°ë¡œ ì›€ì§ì´ëŠ” ê²ƒì„ ê°€ì ¸ì˜¨ë‹¤.
 		rotationY += Input.GetAxis("Mouse X");
 		rotationY = rotationY % 360;
-		// »óÇÏ·Î ¿òÁ÷ÀÌ´Â °Í
+		// ìƒí•˜ë¡œ ì›€ì§ì´ëŠ” ê²ƒ
 		rotationX += Input.GetAxis("Mouse Y");
-		// ½ºÅ©·Ñ °ª
+		// ìŠ¤í¬ë¡¤ ê°’
 		scroll = Input.GetAxis("Mouse ScrollWheel");
-		// ½ºÅ©·Ñ °ª¿¡ µû¶ó¼­ Ä«¸Ş¶ó¿Í Å¸°ÙÀÇ °Å¸®¸¦ °»½Å(ÁÜÀÎ, ÁÜ¾Æ¿ô)
+		// ìŠ¤í¬ë¡¤ ê°’ì— ë”°ë¼ì„œ ì¹´ë©”ë¼ì™€ íƒ€ê²Ÿì˜ ê±°ë¦¬ë¥¼ ê°±ì‹ (ì¤Œì¸, ì¤Œì•„ì›ƒ)
 		targetdistance -= scroll * zoomSpeed * Time.deltaTime;
 		targetdistance = Mathf.Clamp(targetdistance, minDistance, maxDistance);
 
-		// ÁÂ¿ìÀÇ ÃÖ´ë ÃÖ¼Ò °¢µµ¸¦ Á¦ÇÑÇÑ´Ù.
+		// ì¢Œìš°ì˜ ìµœëŒ€ ìµœì†Œ ê°ë„ë¥¼ ì œí•œí•œë‹¤.
 		// rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
 		// rotationY = Mathf.Clamp(rotationY, minHorizontalAngle,maxHorizontalAngle );
 		float rotationYAmount = Mathf.Abs(rotationY);
@@ -60,20 +60,20 @@ public class TPSCameraController : MonoBehaviour
 			targetframingOffset.x *= -1;
 		}
 		Debug.Log("Y" + rotationY);
-		// ¿ÀÀÏ·¯ ¿¬»êÀ» ÅëÇØ¼­ ¸¶¿ì½º ¿òÁ÷ÀÓ¿¡ µû¶ó È¸Àü°ªÀ» ±¸ÇÑ´Ù.
+		// ì˜¤ì¼ëŸ¬ ì—°ì‚°ì„ í†µí•´ì„œ ë§ˆìš°ìŠ¤ ì›€ì§ì„ì— ë”°ë¼ íšŒì „ê°’ì„ êµ¬í•œë‹¤.
 		Quaternion targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
-		// Å¸°Ù À§Ä¡ÀÇ fraimingOffset °ªÀ» ´õÇÑ´Ù.
+		// íƒ€ê²Ÿ ìœ„ì¹˜ì˜ fraimingOffset ê°’ì„ ë”í•œë‹¤.
 		Vector3 focusPosition = followTarget.position + new Vector3(targetframingOffset.x, targetframingOffset.y, 0);
         //Vector3.MoveTowards(transform.position, followTarget.position + new Vector3(targetframingOffset.x, targetframingOffset.y), rotationSpeed*Time.deltaTime);
 			//followTarget.position + 
 			//new Vector3(targetframingOffset.x, targetframingOffset.y, 0);
 
-		// ¿ÀÀÏ·¯ ¿¬»êÀ» ÅëÇØ ±¸ÇÑ È¸Àü°ª¿¡ ÁÜÀ» Àû¿ëÇÑ´Ù.
+		// ì˜¤ì¼ëŸ¬ ì—°ì‚°ì„ í†µí•´ êµ¬í•œ íšŒì „ê°’ì— ì¤Œì„ ì ìš©í•œë‹¤.
 		transform.position = 
 			Vector3.Slerp(transform.position, (focusPosition - (targetRotation * new Vector3(0, 0, targetdistance))), rotationSpeed * Time.deltaTime);
 			//focusPosition - 
 			//(targetRotation * new Vector3(0, 0, targetdistance));
-		// ¿ÀºêÁ§Æ® È¸Àü°ª ¾÷µ¥ÀÌÆ®
+		// ì˜¤ë¸Œì íŠ¸ íšŒì „ê°’ ì—…ë°ì´íŠ¸
 		transform.rotation = targetRotation;
 		//Debug.Log("Euler : " + Quaternion.Get());
     }
