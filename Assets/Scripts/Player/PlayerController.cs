@@ -2,43 +2,49 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public enum InteractType
 {
-    EqauipmentBox,
+    EqauipmentTable,
 }
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float radius = 2f;
     [SerializeField] LayerMask layer;
-    [SerializeField] Collider[] colliders;
-    [SerializeField] GameObject[] shortObjects;
-    [SerializeField] int[] objectDistance;
+    //[SerializeField] Collider[] colliders;
+    [SerializeField] public Dictionary<GameObject, float> shortObjects;
     public GameObject short_obj;
     Vector3 viewPos;
-    [SerializeField]Camera camera;
+    [Header("Screen Controll")]
+    [SerializeField]Camera camera1;
+
+    [SerializeField] Canvas mainCanvas;
+
+    [SerializeField] private GameObject menuCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shortObjects = new Dictionary<GameObject, float>(4);
     }
 
     // Update is called once per frame
     void Update()
     {
         float short_distance;
-        if (shortObjects.Length > 0)
+        if (shortObjects.Count > 0)
         {
-            short_distance = objectDistance[0];
+            short_distance = 9999;
             foreach (var item in shortObjects.Select((value, index) => (value, index)))
             {
-                GameObject gam = item.value;
+                GameObject gam = item.value.Key;
                 int idx = item.index;
 
-                float short_distance2 = objectDistance[idx];
+                float short_distance2 = item.value.Value;
                 if (isViewPos(gam.transform))
                 {
                     if (short_distance > short_distance2)
@@ -53,16 +59,23 @@ public class PlayerController : MonoBehaviour
 
             if (short_obj)
             {
-                InteractType interObject = (InteractType)Enum.Parse(typeof(InteractType), short_obj.name);
-                InteractiveKeyPress(interObject);
+                //Debug.Log("short_obj ÏßÑÏûÖ");
+                //InteractType interObject = (InteractType)Enum.Parse(typeof(InteractType), short_obj.name);
+                InteractiveKeyPress(short_obj);
             }
         }
 
-
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //camera1.gameObject.SetActive(true);
+            mainCanvas.gameObject.SetActive(true);
+            menuCamera.SetActive(false);
+            Cursor.visible = false;
+        }
+        
 
         //float short_distance;
-        // Sphereæ»¿« ∞¥√ºµÈ¡ﬂ ∞°¿Â ∞°±ÓøÓ ∞¥√º º±¡§
+        // SphereÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ√ºÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ√º ÔøΩÔøΩÔøΩÔøΩ
         //colliders = Physics.OverlapSphere(transform.position, radius, layer);
         /*if (colliders.Length > 0) { 
             short_distance = Vector3.Distance(transform.position, colliders[0].transform.position);
@@ -94,25 +107,30 @@ public class PlayerController : MonoBehaviour
 
     bool isViewPos(Transform transform)
     {
-        viewPos = camera.WorldToViewportPoint(transform.position);
+        viewPos = camera1.WorldToViewportPoint(transform.position);
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0) {
             return true;
         }
         return false;
     }
 
-    void InteractiveKeyPress(InteractType type)
+    void InteractiveKeyPress(GameObject obj)
     {   
         if (Input.GetKeyDown(KeyCode.F))
         {
-            
-            switch (type)
+            InteractType interObject = (InteractType)Enum.Parse(typeof(InteractType), obj.name);
+            switch (interObject)
             {
-                case InteractType.EqauipmentBox:
-                    Debug.Log("¿Â∫Ò ±∏∏≈ ªÛ»£ ¿€øÎ");
+                case InteractType.EqauipmentTable:
+                    menuCamera = obj.GetComponent<PointerActive>().interCamera;
+                    menuCamera.SetActive(true);
+                    //camera1.gameObject.SetActive(false);
+                    mainCanvas.gameObject.SetActive(false);
+                    Cursor.visible = true; 
+                    Debug.Log("Ïû•ÎπÑ Íµ¨Îß§ ÌéòÏù¥ÏßÄ");
                     break;
                 default:
-                    Debug.Log(type);
+                    Debug.Log(interObject);
                     break;
             }
         }
