@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
 
         //float short_distance;
-        // Sphereæ»¿« ∞¥√ºµÈ¡ﬂ ∞°¿Â ∞°±ÓøÓ ∞¥√º º±¡§
+        // SphereÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ√ºÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ√º ÔøΩÔøΩÔøΩÔøΩ
         //colliders = Physics.OverlapSphere(transform.position, radius, layer);
         /*if (colliders.Length > 0) { 
             short_distance = Vector3.Distance(transform.position, colliders[0].transform.position);
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
             switch (type)
             {
                 case InteractType.EqauipmentBox:
-                    Debug.Log("¿Â∫Ò ±∏∏≈ ªÛ»£ ¿€øÎ");
+                    Debug.Log("Ïû•ÎπÑÍµ¨Îß§");
                     break;
                 default:
                     Debug.Log(type);
