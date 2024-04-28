@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonEvent : MonoBehaviour
 {
     [SerializeField]private ToggleGroup toggleGroup;
+    [SerializeField] private TextMeshProUGUI gradeText;
 
     [SerializeField]Toggle[] toggles;
     // Start is called before the first frame update
@@ -29,6 +31,6 @@ public class ButtonEvent : MonoBehaviour
         }
 
         actToggle.interactable = false;
-
+        gradeText.SetText(actToggle.GetComponentInChildren<TextMeshProUGUI>().text+" Grade Support List");
     }
 }

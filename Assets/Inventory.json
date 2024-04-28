@@ -1,0 +1,17 @@
+[
+  {
+    "itemID" : 1,
+    "itemGrade" : 6,
+    "hasThis" : false
+  },
+  {
+    "itemID" : 2,
+    "itemGrade" : 6,
+    "hasThis" : false
+  },
+  {
+    "itemID" : 3,
+    "itemGrade" : 6,
+    "hasThis" : false
+  }
+]

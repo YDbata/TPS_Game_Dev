@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         shortObjects = new Dictionary<GameObject, float>(4);
+ 
     }
 
     // Update is called once per frame
@@ -73,37 +74,6 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
         }
         
-
-
-        //float short_distance;
-        // Sphere���� ��ü���� ���� ����� ��ü ����
-        //colliders = Physics.OverlapSphere(transform.position, radius, layer);
-        /*if (colliders.Length > 0) { 
-            short_distance = Vector3.Distance(transform.position, colliders[0].transform.position);
-            foreach(Collider col in colliders)
-            {
-                bool hit = Physics.Raycast(col.transform.position, Vector3.zero, 0f);
-                float short_distance2 = Vector3.Distance(transform.position, col.transform.position);
-                if (isViewPos(col))
-                {
-                    if (short_distance > short_distance2)
-                    {
-                        
-                        short_distance = short_distance2;
-                        short_enemy = col;
-                        
-                    }
-                }
-            }
-            
-                
-            if(short_enemy)
-            {
-                InteractType interObject = (InteractType)Enum.Parse(typeof(InteractType), short_enemy.name);
-                InteractiveKeyPress(interObject);
-            }
-        }*/
-        
     }
 
     bool isViewPos(Transform transform)
@@ -125,10 +95,9 @@ public class PlayerController : MonoBehaviour
                 case InteractType.EqauipmentTable:
                     menuCamera = obj.GetComponent<PointerActive>().interCamera;
                     menuCamera.SetActive(true);
-                    //camera1.gameObject.SetActive(false);
                     mainCanvas.gameObject.SetActive(false);
                     Cursor.visible = true; 
-                    Debug.Log("장비 구매 페이지");
+                    //Debug.Log("장비 구매 페이지");
                     break;
                 default:
                     Debug.Log(interObject);

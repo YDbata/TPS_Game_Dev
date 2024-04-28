@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TPSGame.Data;
+using TPSGame.Data.Mock;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,7 @@ public enum GameState
 {
     None,
     Login,
+    LoadResources,
     WaitUntilResourcesLoaded,
     Home,
     Tutorial
@@ -27,12 +30,13 @@ public class GameManager : SingletonMonoBase<GameManager>
             _state = value;
         }
     }
-
+    public IUnitOfWork unitOfWork { get; private set; }
     [SerializeField] private GameState _state;
     
     override protected void Awake()
     {
         base.Awake();
+        Cursor.visible = false;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -50,6 +54,14 @@ public class GameManager : SingletonMonoBase<GameManager>
                 break;
             case GameState.Login:
                 SceneManager.LoadScene("Login");
+                _state++;
+                break;
+            case GameState.LoadResources:
+                if (isTesting)
+                    unitOfWork = new MockUnitOfWork();
+                else
+                    unitOfWork = null;//new UnitOfWork();
+
                 _state++;
                 break;
             case GameState.WaitUntilResourcesLoaded:
