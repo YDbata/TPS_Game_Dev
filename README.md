@@ -16,7 +16,6 @@ TPS 게임 제작 구현
 ## 캐릭터 구현
 기본 컨셉 변경으로 디자인 없앨예정
 ### 캐릭터 기본 조작
-<img src="https://github.com/YDbata/TPS_Game_Dev/assets/51112432/01976700-9884-40af-b136-3e74d711576f" width=400>
 
 기본이동 및 점프 : input maneger로 구현  
 <img src="https://github.com/YDbata/TPS_Game_Dev/assets/51112432/52f8b499-2a0c-4234-8aa9-7ad49ba59622" width=400>
@@ -50,8 +49,8 @@ Patrol 없이 가만히 있는 개체
 ### Health Bar
 - 기본 HP Bar
 
-### 탄창, 탄약 개수 표시
-- Mag(탄창), Ammo(탄약) 개수를 표시하고 사용할 때 마다 업데이트
+### 화살, 화살통 개수 표시
+- Mag(화살통), Ammo(화살) 개수를 표시하고 사용할 때 마다 업데이트
 
 ### 나침반
 - 상단에서 현재 방위를 표시하여 Player가 위치를 특정할 때 도움을 준다.
@@ -76,3 +75,10 @@ Patrol 없이 가만히 있는 개체
 ## 카메라 조절
 카메라를 TPS에 맞게 캐릭터 뒤에서 캐릭터를 follow하도록 설정
 
+## 사용 플러그인 + 네트워크
+### 사용 플러그인
+- Newtonsoft.Json
+
+### 서버구성(예정)
+- mysql
+- photon
