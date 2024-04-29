@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   <id>k__BackingField: 1
-  <description>k__BackingField: basic bow
-  <icon>k__BackingField: {fileID: 8276442123569471543, guid: 23c8490ae9be9e4469711db9c9b9f74e, type: 3}
+  <description>k__BackingField: basic bow GoGo
+  <itemName>k__BackingField: basic bow
+  <icon>k__BackingField: {fileID: 1002084765251636358, guid: fc5dd7dcd3334f34d81c19a0b57b152e, type: 3}

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace TPSGame.Data.Mock
+﻿namespace TPSGame.Data.Mock
 {
     public class MockUnitOfWork : IUnitOfWork
     {
@@ -9,7 +7,8 @@ namespace TPSGame.Data.Mock
             inventoryRepository = new MockInventoryRepository();
         }
 
-        public bool isReady = true;
+        // interfase 재정의
+        public bool isReady => true;
         
         public IRepository<InventorySlotDataModel> inventoryRepository { get; private set; }
     }

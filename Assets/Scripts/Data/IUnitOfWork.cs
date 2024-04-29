@@ -1,11 +1,9 @@
-﻿using UnityEngine;
-
-namespace TPSGame.Data
+﻿namespace TPSGame.Data
 {
     /// <summary>
     /// 모든 Repository 참조를 가지고있는 단위
     /// </summary>
-    public class IUnitOfWork : MonoBehaviour
+    public interface IUnitOfWork
     {
         /// <summary>
         /// 내부 Context 및 Repositories 준비 됐는지?

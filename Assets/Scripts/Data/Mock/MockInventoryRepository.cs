@@ -12,8 +12,23 @@ namespace TPSGame.Data.Mock
     {
         public MockInventoryRepository()
         {
-            _path = Application.persistentDataPath + "Asset/Inventory.json";
-            Debug.Log(_path);
+            _path = Application.dataPath + "/Inventory.json";
+            //Assets/Inventory.json
+            //Debug.Log(_path);
+            if (File.Exists(_path))
+            {
+                _inventorySlotDataModels =
+                    JsonConvert.DeserializeObject<List<InventorySlotDataModel>>(File.ReadAllText(_path));
+            }
+            else
+            {
+                _inventorySlotDataModels = new List<InventorySlotDataModel>(DEFAULT_CAPACITY);
+                for (int i = 0; i < DEFAULT_CAPACITY; i++)
+                {
+                    _inventorySlotDataModels.Add(new InventorySlotDataModel(0, false, -1));
+                }
+                File.WriteAllText(_path, JsonConvert.SerializeObject(_inventorySlotDataModels));
+            }
         }
 
         private readonly string _path;
