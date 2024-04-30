@@ -46,6 +46,15 @@ Patrol 없이 가만히 있는 개체
 
 ## UI 구성
 
+### 장비 구매 및 선택 화면
+- 장비의 구매와 선택을 한화면에 가능하게 구현
+- 장비 화면에 캐릭터를 불러오기 위해 Camera사용
+- Repository Pattern으로 내부를 구성하고 DB가 연동되어있지 않아 Mock으로 DB연동부를 구현(DB - Json - Screen 형태)
+
+![image](https://github.com/YDbata/TPS_Game_Dev/assets/51112432/d83db01c-e44d-48cf-b29d-46564d807167)
+
+캐릭터 포즈와 인벤 UI 수정 예정
+
 ### Health Bar
 - 기본 HP Bar
 
