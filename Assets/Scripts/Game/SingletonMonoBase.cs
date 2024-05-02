@@ -1,35 +1,36 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SingletonMonoBase<T> : MonoBehaviour
-    where T : SingletonMonoBase<T>
+namespace TPSGame.Singleton
 {
-    public static T instance
+    public class SingletonMonoBase<T> : MonoBehaviour
+        where T : SingletonMonoBase<T>
     {
-        get
+        public static T instance
         {
-            if (_instance == null)
+            get
             {
-                _instance = new GameObject(typeof(T).Name).AddComponent<T>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject(typeof(T).Name).AddComponent<T>();
+                }
+
+                return _instance;
+            }
+        }
+
+        private static T _instance;
+
+        protected virtual void Awake()
+        {
+            if (_instance != null)
+            {
+                Destroy(gameObject);
+                return;
             }
 
-            return _instance;
+            _instance = (T)this;
         }
-    }
-
-    private static T _instance;
-
-    protected virtual void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = (T)this;
-    }
     
+    }
 }
+

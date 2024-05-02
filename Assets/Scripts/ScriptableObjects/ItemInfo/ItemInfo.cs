@@ -11,6 +11,6 @@ namespace TPSGame
         [field: SerializeField] public string description { get; private set; }
         [field: SerializeField] public string itemName { get; private set; }
         //[field: SerializeField] public int  { get; private set; }
-        [field: SerializeField] public GameObject icon { get; private set; }
+        [field: SerializeField] public Sprite icon { get; private set; }
     }
 }

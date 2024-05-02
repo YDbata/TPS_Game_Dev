@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-namespace DiceGame.UI
+namespace TPSGame.UI
 {
     /// <summary>
     /// 모든 UI 의 기본 상호작용 인터페이스

@@ -8,7 +8,7 @@ namespace TPSGame.UI
     public class InventorySlot : MonoBehaviour
     {
         public int SlotID { get; set; }
-        [SerializeField] private GameObject _icon;
+        [SerializeField] private Image _icon;
         [SerializeField] private Image _has;
         [SerializeField] private TMP_Text _name;
         private float noHasThis = 0.5f;
@@ -17,8 +17,7 @@ namespace TPSGame.UI
             Color tmpColor = _has.color;
             if (itemID > 0)
             {
-                _icon = Instantiate(ItemInfoResources.instance[itemID].icon);
-                _icon.transform.SetParent(this.gameObject.transform, false);
+                _icon.sprite = ItemInfoResources.instance[itemID].icon;
                 tmpColor.a = hasThis ? 0f : noHasThis;
                 _has.color = tmpColor;
                 Debug.Log(ItemInfoResources.instance[itemID].itemName);
@@ -26,7 +25,7 @@ namespace TPSGame.UI
             }
             else
             {
-                _icon = null;
+                _icon.sprite = null;
                 tmpColor.a = noHasThis;
                 _has.color = tmpColor;
                 _name.text = string.Empty;

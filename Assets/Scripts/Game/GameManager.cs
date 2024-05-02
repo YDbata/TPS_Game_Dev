@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TPSGame.Data;
 using TPSGame.Data.Mock;
+using TPSGame.Singleton;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
