@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TPSGame.UI;
 using UnityEngine;
 
-public class EqauipmentShop : MonoBehaviour
+public class EqauipmentShop : UIBase
 {
     // Start is called before the first frame update
     void Start()
