@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1194
     height: 703
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -41,8 +41,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< Updated upstream
     width: 230
     height: 292
+=======
+    width: 376.88885
+    height: 464.44446
+>>>>>>> Stashed changes
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
@@ -70,12 +75,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 648
     y: 0
+<<<<<<< Updated upstream
     width: 230
     height: 653
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 70
+=======
+    width: 376.88885
+    height: 819.7778
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 50
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +165,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 17
+=======
+  controlID: 137
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +215,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 27
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -214,9 +232,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< Updated upstream
     y: 292
     width: 230
     height: 361
+=======
+    y: 464.44446
+    width: 376.88885
+    height: 355.3333
+>>>>>>> Stashed changes
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 19}
@@ -240,10 +264,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: 878
     y: 0
     width: 316
     height: 653
+=======
+    x: 1303.1111
+    y: 0
+    width: 403.55554
+    height: 819.7778
+>>>>>>> Stashed changes
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
@@ -892,9 +923,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 926.2222
-    y: 439.1111
-    width: 326.88885
-    height: 432.1111
+    y: 536.8889
+    width: 374.88885
+    height: 334.3333
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -925,10 +956,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: -546
     y: 83
     width: 228
     height: 271
+=======
+    x: 926.2222
+    y: 72.44444
+    width: 374.88885
+    height: 443.44446
+>>>>>>> Stashed changes
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -941,10 +979,17 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
+<<<<<<< Updated upstream
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 9e9c0000
       m_LastClickedID: 40094
       m_ExpandedIDs: f2dfffff84e1ffffc0980000
+=======
+      scrollPos: {x: 0, y: 41.555542}
+      m_SelectedIDs: 50f3feff
+      m_LastClickedID: -68784
+      m_ExpandedIDs: 50f3feff4c06ffff521bffffcc2dfffff0f7ffff10fbffff42620000746300004e650000
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -988,10 +1033,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: -316
     y: 83
     width: 315
     height: 632
+=======
+    x: 1303.1111
+    y: 72.44444
+    width: 402.55554
+    height: 798.7778
+>>>>>>> Stashed changes
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1035,10 +1087,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: -546
     y: 375
     width: 228
     height: 340
+=======
+    x: 926.2222
+    y: 536.8889
+    width: 374.88885
+    height: 334.3333
+>>>>>>> Stashed changes
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1060,7 +1119,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< Updated upstream
     - Assets/Scripts/Player
+=======
+    - Assets/Scripts/Home/Equipment
+>>>>>>> Stashed changes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1068,16 +1131,27 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
+<<<<<<< Updated upstream
   - Assets/Scripts/Player
+=======
+  - Assets/Scripts/Home/Equipment
+>>>>>>> Stashed changes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/iksunyoon/Desktop/Git/TPS_Game_Dev
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 274.99945}
     m_SelectedIDs: 0a9e0000
     m_LastClickedID: 40458
     m_ExpandedIDs: 00000000f4950000fc96000000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 741.6667}
+    m_SelectedIDs: 186a0000
+    m_LastClickedID: 27160
+    m_ExpandedIDs: 00000000726900007469000076690000786900007a6900007c6900007e69000080690000826900008469000086690000886900008a6900008c6900008e69000090690000926900009469000096690000986900009a6900009c690000ca690000ea690000007200001272000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1105,7 +1179,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 00000000f4950000
+=======
+    m_ExpandedIDs: 00000000726900007469000076690000786900007a6900007c6900007e69000080690000826900008469000086690000886900008a6900008c6900008e69000090690000926900009469000096690000986900009a6900009c690000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1133,21 +1211,25 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
+<<<<<<< Updated upstream
     m_ExpandedInstanceIDs: 786c000002930000fc930000d04d01003868010038b80000ae960000a48e0000029a0000000000008a620000080c0100505e01009c6f00009c6500002e95000002690000309300001a990000cca60000
+=======
+    m_ExpandedInstanceIDs: 786c000002930000fc930000d04d01003868010038b80000ae960000a48e0000029a00008a620000080c0100505e01009c6f00009c6500002e95000002690000309300001a990000cca60000366b000016a700000000000054720000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Equipment
+      m_OriginalName: Equipment
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 27036
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:
@@ -1517,9 +1599,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: 3.7893581, y: 4.000867, z: -7.9494123}
     speed: 2
     m_Value: {x: 3.7893581, y: 4.000867, z: -7.9494123}
+=======
+    m_Target: {x: -30.65196, y: -2.8681443, z: 17.029642}
+    speed: 2
+    m_Value: {x: -30.65196, y: -2.8681443, z: 17.029642}
+>>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1565,6 +1653,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< Updated upstream
     m_Target: {x: 0.22191067, y: -0.17743126, z: 0.041123517, w: 0.95793265}
     speed: 2
     m_Value: {x: 0.22184294, y: -0.17886329, z: 0.041455254, w: 0.95764047}
@@ -1572,6 +1661,15 @@ MonoBehaviour:
     m_Target: 3.44782
     speed: 2
     m_Value: 3.2028053
+=======
+    m_Target: {x: 0.08429469, y: -0.41359895, z: 0.038529437, w: 0.9058079}
+    speed: 2
+    m_Value: {x: 0.0842887, y: -0.41356957, z: 0.0385267, w: 0.90574354}
+  m_Size:
+    m_Target: 18.428541
+    speed: 2
+    m_Value: 18.428541
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1635,7 +1733,7 @@ MonoBehaviour:
   m_SerializedViewValues:
   - C:\Ddrive\git\TPS_Game_Dev\Library\PlayModeViewStates\54856bc13184a4248a57c26a624277f2
   m_PlayModeViewName: GameView
-  m_ShowGizmos: 1
+  m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetSize: {x: 1920, y: 1080}
@@ -1645,7 +1743,7 @@ MonoBehaviour:
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:

@@ -34,7 +34,7 @@ public class PointerActive: MonoBehaviour
     {
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
         Color pointerColor = pointer.color;
-        //Debug.Log(distance + "    "+ GameObject.FindWithTag("Player").name);
+        Debug.Log(distance + "    "+ GameObject.FindWithTag("Player").name);
         if (distance < ActiveLimit)
         {
             pointerColor = new Color(255, 255, 255, 1f);
