@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace TPSGame.UI
 {
-    public class InventoryUI : MonoBehaviour
+    public class InventoryUI : UIPopUpBase
     {
         [SerializeField] InventorySlot _slotPrefab; // 슬롯 데이터를 보여줄 기본 단위 원본
         [SerializeField] Transform _slotContent; // 슬롯 생성 위치

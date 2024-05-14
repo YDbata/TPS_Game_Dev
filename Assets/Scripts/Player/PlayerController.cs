@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using TPSGame.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,6 +11,7 @@ using UnityEngine.Serialization;
 public enum InteractType
 {
     EqauipmentTable,
+    MissionTable
 }
 public class PlayerController : MonoBehaviour
 {
@@ -69,8 +71,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //camera1.gameObject.SetActive(true);
-            mainCanvas.gameObject.SetActive(true);
-            menuCamera.SetActive(false);
+            // TODO 현재 UI 종료
             Cursor.visible = false;
         }
         
@@ -90,14 +91,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             InteractType interObject = (InteractType)Enum.Parse(typeof(InteractType), obj.name);
+            
             switch (interObject)
             {
                 case InteractType.EqauipmentTable:
-                    menuCamera = obj.GetComponent<PointerActive>().interCamera;
-                    menuCamera.SetActive(true);
-                    mainCanvas.gameObject.SetActive(false);
-                    Cursor.visible = true; 
-                    //Debug.Log("장비 구매 페이지");
+                    // UI보여주기
+                    UIManager.instance.Get<InventoryUI>().Toggle();
+                    Cursor.visible = true;
+                    break;
+                case InteractType.MissionTable:
+                    // Mission UI 보여주기
+                    Cursor.visible = true;
                     break;
                 default:
                     Debug.Log(interObject);
