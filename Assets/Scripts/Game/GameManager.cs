@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TPSGame.Data;
 using TPSGame.Data.Mock;
 using TPSGame.Singleton;
+using TPSGame.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -62,7 +63,7 @@ public class GameManager : SingletonMonoBase<GameManager>
                     unitOfWork = new MockUnitOfWork();
                 else
                     unitOfWork = null;//new UnitOfWork();
-
+                //UIManager.instance.Register(UIBase);
                 _state++;
                 break;
             case GameState.WaitUntilResourcesLoaded:

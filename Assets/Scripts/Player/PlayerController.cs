@@ -96,11 +96,14 @@ public class PlayerController : MonoBehaviour
             {
                 case InteractType.EqauipmentTable:
                     // UI보여주기
+                    
                     UIManager.instance.Get<InventoryUI>().Toggle();
                     Cursor.visible = true;
                     break;
                 case InteractType.MissionTable:
                     // Mission UI 보여주기
+                    Debug.Log("F enter");
+                    
                     Cursor.visible = true;
                     break;
                 default:

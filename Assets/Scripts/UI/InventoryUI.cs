@@ -22,6 +22,7 @@ namespace TPSGame.UI
 
         protected void Awake()
         {
+            base.Awake();
             _repository = GameManager.instance.unitOfWork.inventoryRepository; // 저장소 주소 참조 받아옴 (의존성 주입)
             _slots = new List<InventorySlot>(_repository.GetAllItems().Count()); // 저장소에있는 데이터 갯수만큼 슬롯이 들어갈 자리 생성
             InventorySlot tmpSlot = null;
