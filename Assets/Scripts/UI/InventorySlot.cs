@@ -20,7 +20,7 @@ namespace TPSGame.UI
                 _icon.sprite = ItemInfoResources.instance[itemID].icon;
                 tmpColor.a = hasThis ? 0f : noHasThis;
                 _has.color = tmpColor;
-                Debug.Log(ItemInfoResources.instance[itemID].itemName);
+                //Debug.Log(ItemInfoResources.instance[itemID].itemName);
                 _name.text = ItemInfoResources.instance[itemID].itemName;
             }
             else

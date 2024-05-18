@@ -11,7 +11,8 @@ using UnityEngine.Serialization;
 public enum InteractType
 {
     EqauipmentTable,
-    MissionTable
+    MissionButton
+    
 }
 public class PlayerController : MonoBehaviour
 {
@@ -100,10 +101,10 @@ public class PlayerController : MonoBehaviour
                     UIManager.instance.Get<InventoryUI>().Toggle();
                     Cursor.visible = true;
                     break;
-                case InteractType.MissionTable:
+                case InteractType.MissionButton:
                     // Mission UI 보여주기
                     Debug.Log("F enter");
-                    
+                    UIManager.instance.Get<UIMission>().Toggle();
                     Cursor.visible = true;
                     break;
                 default:

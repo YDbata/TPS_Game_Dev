@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2d37c810d74a62a7947adfbb2938c0, type: 3}
+  m_Name: 0001BasicBow
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: 1
+  <description>k__BackingField: basic bow GoGo
+  <itemName>k__BackingField: basic bow
+  <icon>k__BackingField: {fileID: 21300000, guid: ee8608a905dc48e47bcede73d5349167, type: 3}
