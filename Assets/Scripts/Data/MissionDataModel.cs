@@ -14,7 +14,7 @@ namespace TPSGame.Data
             
         }
 
-        public MissionDataModel(int MissionID, String MissionTitle, int MissionGrade, String MissionContent, String Location, int[] Reward,
+        public MissionDataModel(int MissionID, String MissionTitle, int MissionGrade, String MissionContent, String Location, 
             int EXP)
         {
             this.MissionID = MissionID;
@@ -22,7 +22,6 @@ namespace TPSGame.Data
             this.MissionContent = MissionContent;
             this.MissionGrade = MissionGrade;
             this.MissionTitle = MissionTitle;
-            this.Reward = Reward;
             this.EXP = EXP;
         }
 
@@ -30,7 +29,6 @@ namespace TPSGame.Data
         public int MissionGrade;
         public String MissionContent;
         public String Location;
-        public int[] Reward;
         public int EXP;
         public String MissionTitle;
         

@@ -14,5 +14,10 @@
         /// InventoryRepository 참조 (Inventory UI 등에서 인벤토리의 정보가 필요할때 가져다 쓰기위함)
         /// </summary>
         IRepository<InventorySlotDataModel> inventoryRepository { get; }
+
+        /// <summary>
+        /// MissionRepository 참조(Mission정보를 불러올 때 사용)
+        /// </summary>
+        IRepository<MissionDataModel> missionRepository { get; }
     }
 }

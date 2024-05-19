@@ -21,7 +21,7 @@ namespace TPSGame.Data.Mock
                 _missionDataModels = new List<MissionDataModel>(DEFAULT_CAPACITY);
                 for (int i = 0; i < DEFAULT_CAPACITY; i++)
                 {
-                    _missionDataModels.Add(new MissionDataModel(0, "", 0, "", "", null, 0));
+                    _missionDataModels.Add(new MissionDataModel(0, "", 0, "", "", 0));
                 }
                 File.WriteAllText(_path, JsonConvert.SerializeObject((_missionDataModels)));
             }

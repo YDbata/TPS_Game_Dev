@@ -3,17 +3,16 @@
     "MissionID" : 1,
     "MissionGrade" : 1,
     "MissionTitle" : "주민 구출",
-    "MissionContent" : "위험에 빠진 주민을 구하기",
+    "MissionContent" : "외진 오솔길을 이동하는 주민 확인하고\n위험에 처한 주민 구출하기\n\n\"강도 캠프의 위치를 알 수 있는 흔적이 있으면 챙겨올 것\"",
     "Location" : "성문 밖 오솔길",
-    "Reward" : [2], 
     "EXP" : 100
   },
   {
     "MissionID" : 2,
     "MissionGrade" : 2,
+    "MissionTitle" : "강도 소탕",
     "MissionContent" : "오솔길에 깃발을 세워 영지 명예 높이기",
     "Location" : "성문 밖 오솔길",
-    "Reward" : [2],
     "EXP" : 120
   },
   {
@@ -21,7 +20,6 @@
     "MissionGrade" : 3,
     "MissionContent" : "강도 캠프 소탕하기",
     "Location" : "숲의 강도 캠프",
-    "Reward" : [2],
     "EXP" : 150
   },
   {
@@ -29,7 +27,6 @@
     "MissionGrade" : 4,
     "MissionContent" : "적군 정찰병을 처리하고 정보 입수하기",
     "Location" : "00국 국경 주변",
-    "Reward" : [2],
     "EXP" : 200
   }
   
