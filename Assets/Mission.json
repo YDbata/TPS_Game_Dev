@@ -2,6 +2,7 @@
   {
     "MissionID" : 1,
     "MissionGrade" : 1,
+    "MissionTitle" : "주민 구출",
     "MissionContent" : "위험에 빠진 주민을 구하기",
     "Location" : "성문 밖 오솔길",
     "Reward" : [2], 

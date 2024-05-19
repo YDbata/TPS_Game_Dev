@@ -2,9 +2,6 @@ using System;
 using UnityEngine;
 using Newtonsoft.Json;
 
-
-
-
 namespace TPSGame.Data
 {
     public enum Grade

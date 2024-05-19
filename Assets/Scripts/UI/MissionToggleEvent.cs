@@ -13,9 +13,10 @@ namespace TPSGame.UI
         public void OnClick(Toggle actToggle)
         {
             // TODO : DB연동시 Mission 연결 필요
-            if (actToggle.name[-1] == '1')
+            
+            if (actToggle.name.Equals("Mission1"))
             {
-                
+                Debug.Log("1 enter");
             }  
         }
     }
