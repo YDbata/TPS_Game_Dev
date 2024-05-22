@@ -18,6 +18,7 @@ public class Menus : MonoBehaviour
 	private void Awake()
 	{
 		missionComplete.Init();
+        DontDestroyOnLoad(gameObject);
 	}
 
 	public void Pause()

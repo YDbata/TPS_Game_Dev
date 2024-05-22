@@ -27,18 +27,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Canvas mainCanvas;
 
-    [SerializeField] private GameObject menuCamera;
-
     // Start is called before the first frame update
     void Start()
     {
         shortObjects = new Dictionary<GameObject, float>(4);
+        DontDestroyOnLoad(gameObject);
  
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         float short_distance;
         if (shortObjects.Count > 0)
         {

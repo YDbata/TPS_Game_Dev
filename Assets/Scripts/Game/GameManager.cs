@@ -6,6 +6,7 @@ using TPSGame.Data.Mock;
 using TPSGame.Singleton;
 using TPSGame.UI;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -15,6 +16,8 @@ public enum GameState
     LoadResources,
     WaitUntilResourcesLoaded,
     Home,
+    BattleLoaded,
+    Battle,
     Tutorial
 }
 
@@ -32,7 +35,14 @@ public class GameManager : SingletonMonoBase<GameManager>
             _state = value;
         }
     }
+
+    [Header("Fade")] public Image fadeImg;
+    [SerializeField] private float fadeDuration = 2;
+    public AnimationCurve fadeCurve;
+    
     public IUnitOfWork unitOfWork { get; private set; }
+    
+    [Header("CurState")]
     [SerializeField] private GameState _state;
     
     override protected void Awake()
@@ -72,11 +82,37 @@ public class GameManager : SingletonMonoBase<GameManager>
                 break;
             case GameState.Home:
                 break;
+            case GameState.BattleLoaded:
+                //StartCoroutine(Fade(0, 1,fadeDuration));
+                SceneManager.LoadScene("Battle");
+                //StartCoroutine(Fade(1, 0, 0.5f));
+                _state++;
+                break;
+            case GameState.Battle:
+                
+                break;
             case GameState.Tutorial:
-                SceneManager.LoadScene("Tutorial");
                 break;
             default:
                 break;
+        }
+    }
+
+    private IEnumerator Fade(float start, float end, float fadeTime)
+    {
+        float currentTime = 0.0f;
+        float percent = 0.0f;
+
+        while (percent < 1)
+        {
+            currentTime += Time.deltaTime;
+            percent = currentTime / fadeTime;
+            Color color = fadeImg.color;
+            color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
+            Debug.Log(color.a);
+            fadeImg.color = color;
+
+            yield return null;
         }
     }
 }

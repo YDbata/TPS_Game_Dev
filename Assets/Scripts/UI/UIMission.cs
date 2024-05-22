@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TPSGame.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TPSGame.UI
 {
@@ -31,6 +32,11 @@ namespace TPSGame.UI
             {
                 missionDetail.Add(missionData);
             }
+        }
+
+        public void StartClick()
+        {
+            GameManager.instance.state = GameState.BattleLoaded;
         }
     }
 }

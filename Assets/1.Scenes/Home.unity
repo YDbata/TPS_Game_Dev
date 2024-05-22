@@ -913,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 4425428724002119626}
+    - target: {fileID: 5387298330553174777, guid: e4b78e07b62215a40813cd8c89aed9ef, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 5387298330553174778, guid: e4b78e07b62215a40813cd8c89aed9ef, type: 3}
       propertyPath: m_Name
       value: ThirdPersonCineMachine
@@ -924,7 +928,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5387298330553174778, guid: e4b78e07b62215a40813cd8c89aed9ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1927187617}
   m_SourcePrefab: {fileID: 100100000, guid: e4b78e07b62215a40813cd8c89aed9ef, type: 3}
 --- !u!1 &137870574
 GameObject:
@@ -4853,7 +4860,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 637310773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1581570169}
+        m_TargetAssemblyTypeName: TPSGame.UI.UIMission, Assembly-CSharp
+        m_MethodName: StartClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &637310772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7322,6 +7341,7 @@ GameObject:
   - component: {fileID: 948079066}
   - component: {fileID: 948079065}
   - component: {fileID: 948079063}
+  - component: {fileID: 948079068}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -7403,7 +7423,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 3000
   field of view: 50
   orthographic: 0
   orthographic size: 10
@@ -7437,6 +7457,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948079068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948079061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3081282b82215264eab0f65d71e71bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959743216
 GameObject:
   m_ObjectHideFlags: 0
@@ -14292,6 +14324,23 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!1 &1927187613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5387298330553174778, guid: e4b78e07b62215a40813cd8c89aed9ef, type: 3}
+  m_PrefabInstance: {fileID: 129826631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1927187617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927187613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3081282b82215264eab0f65d71e71bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1937225160
 GameObject:
   m_ObjectHideFlags: 0
@@ -15511,7 +15560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0018731513, y: 1295548.4}
+  m_AnchoredPosition: {x: -0.0018731513, y: 2017970.2}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2046136328
@@ -19148,7 +19197,6 @@ MonoBehaviour:
   short_obj: {fileID: 0}
   camera1: {fileID: 948079066}
   mainCanvas: {fileID: 629216421}
-  menuCamera: {fileID: 629216417}
 --- !u!4 &4425428724041515062
 Transform:
   m_ObjectHideFlags: 0
@@ -20760,9 +20808,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1435374149}
   - {fileID: 4425428724002119626}
-  - {fileID: 129826631}
   - {fileID: 489132897}
   - {fileID: 948079067}
+  - {fileID: 129826631}
   - {fileID: 1057308443}
   - {fileID: 2093527342}
   - {fileID: 1756306825}
