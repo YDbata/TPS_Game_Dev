@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         
         float short_distance;
+        //Debug.Log(shortObjects.Count);
         if (shortObjects.Count > 0)
         {
             short_distance = 9999;

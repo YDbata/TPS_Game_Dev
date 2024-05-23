@@ -37,6 +37,7 @@ namespace TPSGame.UI
         public void StartClick()
         {
             GameManager.instance.state = GameState.BattleLoaded;
+            Cursor.visible = false;
         }
     }
 }
