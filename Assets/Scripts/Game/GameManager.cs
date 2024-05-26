@@ -35,7 +35,7 @@ public class GameManager : SingletonMonoBase<GameManager>
             _state = value;
         }
     }
-
+    
     [Header("Fade")] public Image fadeImg;
     [SerializeField] private float fadeDuration = 2;
     public AnimationCurve fadeCurve;
@@ -85,10 +85,13 @@ public class GameManager : SingletonMonoBase<GameManager>
             case GameState.BattleLoaded:
                 //StartCoroutine(Fade(0, 1,fadeDuration));
                 SceneManager.LoadScene("Battle");
-                //StartCoroutine(Fade(1, 0, 0.5f));
+                //sceneChange.enabled = true;
+                //SceneManager.sceneLoaded -= OnSceneLoaded;
+                StartCoroutine(Fade(1, 0, 2f));
                 _state++;
                 break;
             case GameState.Battle:
+                //sceneChange.enabled = false;
                 
                 break;
             case GameState.Tutorial:
@@ -97,6 +100,8 @@ public class GameManager : SingletonMonoBase<GameManager>
                 break;
         }
     }
+
+    
 
     private IEnumerator Fade(float start, float end, float fadeTime)
     {
@@ -109,7 +114,6 @@ public class GameManager : SingletonMonoBase<GameManager>
             percent = currentTime / fadeTime;
             Color color = fadeImg.color;
             color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
-            Debug.Log(color.a);
             fadeImg.color = color;
 
             yield return null;
