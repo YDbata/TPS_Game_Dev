@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,11 +12,11 @@ public class PatrolState : MonoBehaviour , IState
 	[SerializeField] float standPointRadius = 1;
 	public float walkSpeed = 3;
 
-	private Enemy currentEnemy;
+	private Transform currentEnemy;
 	private Animator animator;
 	private NavMeshAgent agent;
 
-	public void EnterState(Enemy enemy)
+	public void EnterState(Transform enemy, Transform target)
 	{
 		if(!animator) animator = gameObject.GetAroundComponent<Animator>();
 		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
@@ -32,11 +33,11 @@ public class PatrolState : MonoBehaviour , IState
 	{	
 		if(wayPoints.Length == 1)
         {
-			if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.EnemyModel.position)
+			if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.position)
 			< standPointRadius)
             {
 				
-				currentEnemy.EnemyModel.rotation = Quaternion.Lerp(currentEnemy.EnemyModel.rotation, wayPoints[currentWayPoint].rotation, Time.deltaTime*5);
+				currentEnemy.rotation = Quaternion.Lerp(currentEnemy.rotation, wayPoints[currentWayPoint].rotation, Time.deltaTime*5);
 				
 				if (walkSpeed > 0.01)
                 {
@@ -51,7 +52,7 @@ public class PatrolState : MonoBehaviour , IState
 
 		}
 
-		else if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.EnemyModel.position)
+		else if (Vector3.Distance(wayPoints[currentWayPoint].position, currentEnemy.transform.position)
 			< walkingPointRadius)
 		{
 			currentWayPoint++;
@@ -66,7 +67,7 @@ public class PatrolState : MonoBehaviour , IState
 	public void ExitState()
 	{
 		animator.SetBool("Walk", false);
-		animator.SetFloat("WalkSpeed", 3, 0.5f, Time.deltaTime);
+		animator.SetFloat("Speed", 3, 0.5f, Time.deltaTime);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
 		animator.SetBool("Dead", false);

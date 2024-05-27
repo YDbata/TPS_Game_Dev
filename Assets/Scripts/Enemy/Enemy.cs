@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        enemyStateContext = new EnemyStateContext(this);
+        enemyStateContext = new EnemyStateContext(this.transform, PlayerBody);
         curhealth = maxhealth;
         healthBar.GiveFullHealth();
         isDead = false;

@@ -14,16 +14,19 @@ enum EState
 public class EnemyStateContext
 {
     public IState CurrentState { get; set; }
-	private readonly Enemy _controller;
-    public EnemyStateContext(Enemy enemy)
+	private readonly  Transform _controller;
+	private readonly  Transform _target;
+    
+    public EnemyStateContext(Transform enemy, Transform player)
     {
 		_controller = enemy;
-	}
+        _target = player;
+    }
 
 	public void Transition(IState state)
 	{
 		if (CurrentState != null) CurrentState.ExitState();
 		CurrentState = state;
-		CurrentState.EnterState(_controller);
+		CurrentState.EnterState(_controller, _target);
 	}
 }

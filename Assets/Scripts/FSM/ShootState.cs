@@ -18,7 +18,6 @@ public class ShootState : MonoBehaviour, IState
 	[Header("Rifle shooting")]
 	[SerializeField] Camera enemyVision;
 	[SerializeField] float nextTimeToShoot = 2f;
-	[SerializeField] Transform playerLookPoint;
 	[SerializeField] float shootingRange = 50;
 	[SerializeField] float Damage = 5;
 
@@ -34,14 +33,16 @@ public class ShootState : MonoBehaviour, IState
 	private Animator animator;
 	private NavMeshAgent agent;
 
-	private Enemy currentEnemy;
+	private Transform currentEnemy;
+    private Transform target;
 	private bool canShoot = true;
-	public void EnterState(Enemy enemy)
+	public void EnterState(Transform enemy, Transform player)
 	{
 		if (!animator) animator = gameObject.GetAroundComponent<Animator>();
 		if (!agent) agent = gameObject.GetAroundComponent<NavMeshAgent>();
 		//if (!dronSound) dronSound = gameObject.GetOrAddComponent<DronSound>();
 		currentEnemy = enemy;
+        target = player;
 
 		animator.SetBool("Walk", false);
 		animator.SetBool("AimRun", false);
@@ -53,7 +54,7 @@ public class ShootState : MonoBehaviour, IState
 	{
 		agent.SetDestination(transform.position);
 
-		currentEnemy.EnemyModel.LookAt(playerLookPoint);
+		currentEnemy.LookAt(target);
 
 		if (canShoot)
 		{

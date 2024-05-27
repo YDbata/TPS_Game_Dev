@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-	public void EnterState(Enemy enemy);
+	public void EnterState(Transform enemy, Transform player);
 	public void UpdateState();
 	public void ExitState();
 }
