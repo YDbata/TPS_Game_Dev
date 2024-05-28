@@ -448,7 +448,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _state: 2
+  _state: 1
 --- !u!4 &1278853565
 Transform:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ namespace TPSGame.Enemy
             playerInVisionRadius = Physics.CheckSphere(this.transform.position, visionRadius, playerLayer);
             playerInShootingRadius = Physics.CheckSphere(this.transform.position, shootingRadius, playerLayer);
 
-
+            Debug.Log(playerInVisionRadius +"  "+playerInShootingRadius);
             if (!playerInVisionRadius && !playerInShootingRadius) UpdateState(EState.Patrol);
             if (playerInVisionRadius && !playerInShootingRadius) UpdateState(EState.Chase);
             //if (playerInVisionRadius && playerInShootingRadius) UpdateState(EState.Shoot);

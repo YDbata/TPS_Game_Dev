@@ -46,7 +46,7 @@ public class PatrolState : MonoBehaviour , IState
 				else
 					walkSpeed = 0;
 
-				animator.SetFloat("WalkSpeed", walkSpeed);
+				animator.SetFloat("Speed", walkSpeed);
 
 			}
 
@@ -67,7 +67,7 @@ public class PatrolState : MonoBehaviour , IState
 	public void ExitState()
 	{
 		animator.SetBool("Walk", false);
-		animator.SetFloat("Speed", 3, 0.5f, Time.deltaTime);
+		animator.SetFloat("Speed", walkSpeed, 0.5f, Time.deltaTime);
 		animator.SetBool("AimRun", false);
 		animator.SetBool("Shoot", false);
 		animator.SetBool("Dead", false);

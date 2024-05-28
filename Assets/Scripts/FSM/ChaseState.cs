@@ -18,22 +18,23 @@ public class ChaseState : MonoBehaviour,IState
         
 		target = player;
 
-		animator.SetBool("Walk", false);
-		animator.SetBool("AimRun", true);
+		animator.SetFloat("Speed", 8);
 		animator.SetBool("Shoot", false);
 		animator.SetBool("Dead", false);
-	}
+        agent.speed = 5;
+    }
 
 	public void UpdateState()
 	{
 		agent.SetDestination(target.position);
+        
 	}
 
 	public void ExitState()
 	{
-		animator.SetBool("Walk", false);
-		animator.SetBool("AimRun", false);
+		animator.SetFloat("Speed", 3);
 		animator.SetBool("Shoot", false);
 		animator.SetBool("Dead", false);
-	}
+        agent.speed = 3.5f;
+    }
 }
